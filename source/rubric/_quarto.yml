@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: ../../output/rubric
+  lib-dir: ../../output/libs
+
+book:
+  title: "Rubrics voor de zelf-evaluatie van meetnetten"
+  author:
+  - firstname: Thierry
+    name: Onkelinx
+    email: thierry.onkelinx@inbo.be
+    orcid: 0000-0001-8804-4216
+    corresponding: true
+  - firstname: Toon
+    name: Westra
+    email: toon.westra@inbo.be
+    orcid: 0000-0003-2478-9459
+  output-file: "rubric"
+  chapters:
+    - index.qmd
+    - vragenlijst.md
+    - formulier.qmd
+
+lang: nl-BE
+
+bibliography: references.bib
+
+inboqmd:
+  nocolophon: true
+  shortauthor: Onkelinx, T. & Westra, T.
+  reviewer:
+  - firstname: Hans
+    name: Van Calster
+    email: hans.vancalster@inbo.be
+    orcid: 0000-0001-8595-8426
+  year: 2024
+  cover-photo: https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227
+  cover-description: Detail of a leaf. Photo by [Skyler Ewing](https://www.pexels.com/nl-nl/@skyler-ewing-266953?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels) via [Pexels](https://www.pexels.com/nl-nl/foto/hout-natuur-rood-creatief-4599227/?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels)
+  reportnr: 99999
+  depotnr: D/2021/999999/999999
+
+format:
+  report-html: default
+  report-pdf:
+    keep-tex: true
+
+knitr:
+  opts_chunk:
+    echo: false

@@ -1,0 +1,33 @@
+title: format template for reports using the corporate identity of the Flemish government
+author: Thierry Onkelinx
+version: 0.0.1
+contributes:
+  format:
+    common:
+      knitr:
+        opts_chunk:
+          echo: false
+      lang: nl-BE
+      scheme: Flanders
+      csl: research-institute-for-nature-and-forest.csl
+    pdf:
+      template-partials:
+        - "partials/doc-class.tex"
+        - "partials/pandoc.tex"
+        - "partials/title.tex"
+      format-resources:
+        - "img/cc-by.eps"
+        - "img/flanders.pdf"
+        - "img/inbo-logo.pdf"
+        - "img/orcid.eps"
+        - "img/vlaamse-overheid.pdf"
+        - "img/vlaanderen-wetenschap.pdf"
+        - "tex/report-generic.sty"
+        - "tex/report-language.sty"
+      pdf-engine: xelatex
+      toc: false
+      lof: false
+      lot: false
+      mainfont: Calibri
+      monofont: inconsolata
+      link-citations: true

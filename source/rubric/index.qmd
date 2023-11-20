@@ -1,0 +1,66 @@
+```{r setup}
+#| include: false
+library(git2rdata)
+library(kableExtra)
+library(knitr)
+library(tidyverse)
+repo <- repository()
+read_vc("data/rubric", root = repo) -> rubric
+```
+
+```{r vragenlijst}
+rubric |>
+  mutate(deel = factor(.data$deel, levels = unique(.data$deel))) |>
+  group_by(.data$fase) |>
+  mutate(
+    vraag = interaction(.data$vraag, .data$deel, drop = TRUE) |>
+      as.integer(),
+    fmt = max(.data$vraag) |>
+      log10() |>
+      ceiling() |>
+      pmax(1) |>
+      sprintf(fmt = "\n- **vraag %%i.%%0%ii**: _%%s_"),
+    tekst = ifelse(
+      .data$oordeel == "onderdeel",
+      sprintf(
+        fmt = .data$fmt, .data$fase, .data$vraag, .data$criterium
+      ),
+      sprintf("    - **%s**: %s", .data$oordeel, .data$criterium)
+    )
+  ) |>
+  group_by(.data$fase, .data$vraag) |>
+  summarise(
+    tekst = paste(.data$tekst, collapse = "\n"), .groups = "drop_last"
+  ) |>
+  summarise(tekst = paste(.data$tekst, collapse = "\n")) |>
+  transmute(
+    tekst = factor(
+      .data$fase, levels = 1:4,
+      labels = c(
+        "Fase I: Prioriteren van informatiebehoeften",
+        "Fase II: Gegevensinzameling", "Fase III: Gegevensverwerking",
+        "Fase IV: Rapportering en communicatie"
+      )
+    ) |>
+      sprintf(fmt = "\n## %s\n%s", .data$tekst)
+  ) |>
+  pull(.data$tekst) |>
+  paste(collapse = "\n") -> vragen
+knit_expand("_vragenlijst.md", vragen = vragen) |>
+  writeLines("vragenlijst.md")
+```
+
+# Ideeën
+
+- Niet alle criteria zijn even relevant voor elk meetnet.
+  We hebben een aangepaste lijst nodig in functie van het type meetnet.
+    - meetnet met programmacontext
+    - meetnet met projectcontext
+    - LTER meetnet
+- Bij de beoordeling van de criteria zowel kijken naar de huidige situatie als de situatie in de nabije toekomst.
+    - Voorbeeld: geen data management plan beschikbaar geeft een "onvoldoende" voor dat criterium zowel nu als in de toekomst.
+    - Als je momenteel aan een data management plan werkt is het huidige situatie "onvoldoende" en de nabije toekomst "voldoende".
+- Soms kan het relevant zijn om een meetnet op te splitsen in meerdere deelmeetnetten.
+  En dan (een deel van) de criteria in te schatten op het niveau van het deelmeetnet.
+  Dit kan nuttig zijn wanneer het ene deel van het meetnet beter uitgewerkt is dan het andere.
+    - Voorbeeld: de bosreservatenmonitoring kan je opsplitsen in onderdelen als "dendrometrie", "vegetatie" en "bodem".

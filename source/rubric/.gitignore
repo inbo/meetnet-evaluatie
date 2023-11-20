@@ -1,0 +1,6 @@
+/.quarto/
+*.eps
+*.pdf
+*.sty
+*.tex
+vragenlijst.md

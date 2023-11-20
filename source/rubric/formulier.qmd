@@ -1,0 +1,39 @@
+```{r setup}
+#| include: false
+library(git2rdata)
+library(kableExtra)
+library(tidyverse)
+repo <- repository()
+read_vc("data/rubric", root = repo) -> rubric
+```
+
+# Invulformulier
+
+```{r tbl-formulier}
+#| tbl-cap: Invulformulier voor de zelf-evaluatie van meetnetten.
+rubric |>
+  filter(.data$oordeel == "onderdeel") |>
+  mutate(deel = factor(.data$deel, levels = unique(.data$deel))) |>
+  group_by(.data$fase) |>
+  mutate(
+    vraag = interaction(.data$vraag, .data$deel, drop = TRUE) |>
+      as.integer(),
+    vraag = max(.data$vraag) |>
+      log10() |>
+      ceiling() |>
+      pmax(1) |>
+      sprintf(fmt = "%%i.%%0%ii") |>
+      sprintf(.data$fase, .data$vraag)
+  ) |>
+  ungroup() |>
+  select("vraag", onderdeel = "criterium") |>
+  mutate("onvol." = " ", "vold." = " ", goed = " ") |>
+  kbl(longtable = TRUE) |>
+  kable_styling(
+    latex_options = c("striped", "repeat_header"),
+    repeat_header_continued = FALSE, repeat_header_text = "(vervolg)"
+  ) |>
+  column_spec(1, width = "7mm") |>
+  column_spec(2, width = "100mm") |>
+  column_spec(3:5, width = "7mm")
+```
