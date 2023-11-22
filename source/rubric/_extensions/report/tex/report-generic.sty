@@ -16,7 +16,7 @@
 \colophonauthor{}
 
 \def\doi#1{\def\@doi{#1}}
-\doi{!!!! MISSING: doi !!!!}
+\doi{DOI not defined}
 
 \def\ordernumber#1{\def\@ordernumber{#1}}
 \ordernumber{}
@@ -404,7 +404,11 @@
       \vspace{144pt}
 
     \hspace{10mm}\parbox[t]{140mm}{
-      \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright \mainColourURL{\@doi} \\ \@ordernumber
+      \ifnum \@colophon > 0
+        \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright \mainColourURL{\@doi} \\ \@ordernumber
+      \else
+        \fontsize{\fontsizeordernr}{\fontsizeordernrinter}\selectfont \raggedright \@ordernumber
+      \fi
   }
 
   \vfill
@@ -469,7 +473,7 @@
 \fancyhead{}
 \fancyfoot{}
 \fancyfoot[LO, RE]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \mainColourURL{\href{\cffooterurl}{www.vlaanderen.be}}}}
-\fancyfoot[LE, RO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \pagename \textbf{ \thepage} / \textbf{\pageref*{LastPage}}}}
+\fancyfoot[LE, RO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \pagename ~\textbf{\thepage} ~\pageseparator~ \textbf{\pageref*{LastPage}}}}
 \fancyfoot[CE, CO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \mainColourURL{\@doi}}}
 \renewcommand{\footrule}{\vbox to 8pt{\hbox
 to\headwidth{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont\leaders\hbox{/}\hfill}\vss}}
@@ -481,7 +485,7 @@ to\headwidth{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}
   \fancyfoot{}
   \fancyfoot[LO, RE]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \mainColourURL{\href{\cffooterurl}{www.vlaanderen.be}}}}
   \fancyfoot[CE, CO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \mainColourURL{\@doi}}}
-  \fancyfoot[LE, RO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \pagename \textbf{ \thepage} ~\pageseparator~\textbf{\pageref*{LastPage}}}}
+  \fancyfoot[LE, RO]{{\color{main.colour}\fontsize{\fontsizefooter}{\fontsizefooterinter}\selectfont \pagename ~\textbf{\thepage} ~\pageseparator ~\textbf{\pageref*{LastPage}}}}
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
 }

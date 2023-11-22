@@ -18,8 +18,14 @@ $for(book.author)$$if(book.author.corresponding)$$if(book.author.corresponding)$
 $for(inboqmd.reviewer)$$if(inboqmd.reviewer.orcid)$\href{https://orcid.org/$inboqmd.reviewer.orcid$}{$endif$$inboqmd.reviewer.firstname$ $inboqmd.reviewer.name$$if(inboqmd.reviewer.orcid)$\includegraphics[height=\fontsizebase]{orcid.eps}}$endif$$sep$, $endfor$
 }
 \pubyear{$inboqmd.year$}
+$if(inboqmd.nocolophon)$
+\doi{}
+$else$
 $if(inboqmd.doi)$
 \doi{$inboqmd.doi$}
+$else$
+\doi{!!!! MISSING: doi !!!!}
+$endif$
 $endif$
 
 $if(inboqmd.cover_description)$

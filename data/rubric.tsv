@@ -66,20 +66,24 @@ fase	deel	vraag	oordeel	criterium
 3	gegevensopslag	1	2	Er is geen data management plan beschikbaar.
 3	gegevensopslag	1	3	Er is een ontwerp data management plan beschikbaar.
 3	gegevensopslag	1	4	Er is een goedgekeurd en gepubliceerd data management plan volgens het sjabloon van de organisatie.
-3	gegevensopslag	2	1	De gegevens worden opgeslagen in een centrale databank.
-3	gegevensopslag	2	2	Nog in te vullen in overleg met team Databeheer.
-3	gegevensopslag	3	1	De gegevens zijn gepubliceerd.
-3	gegevensopslag	3	2	De gegevens zijn niet gepubliceerd.
-3	gegevensopslag	3	3	De verwerkte gegevens zijn publiek beschikbaar. Denk hierbij aan alle informatie nodig om de tabellen en figuren van een rapport aan te maken.
-3	gegevensopslag	3	4	Zowel de verwerkte als de ruwe gegevens zijn publiek beschikbaar. Indien (een deel van) de ruwe gegevens niet publiek mag zijn, is dit gemotiveerd op basis van de beschikbare richtlijnen van de organisatie.
-3	gegevensopslag	4	1	De gegevens zijn open.
-3	gegevensopslag	4	2	De gegevens zijn zonder licentie of met een onduidelijke licentie.
-3	gegevensopslag	4	3	Er is een `lees-mij` bestand met vermelding van de licentie waaronder de gegevens beschikbaar zijn. De licentie is een gestandaardiseerde open licentie.
-3	gegevensopslag	4	4	De gekozen licentie volgt de richtlijnen van de organisatie. De licentietekst is bij de gegevens gevoegd.
-3	gegevensopslag	4	1	De gegevens zijn FAIR (`Findable`, `Accessible`, `Interoperable`, `Re-usable`).
-3	gegevensopslag	4	2	De gegevens zijn niet FAIR.
-3	gegevensopslag	4	3	De publiek beschikbare gegevens zijn FAIR.
-3	gegevensopslag	4	4	Alle gegevens zijn FAIR. De metadata van niet publiek beschikbare gegevens is publiek.
+3	gegevensopslag	2	1	De meetnetbeheerder houdt rekening met privacy.
+3	gegevensopslag	2	2	De meetnetbeheerder heeft geen documentatie over de privacy-gevoelige informatie in de gegevens.
+3	gegevensopslag	2	3	De meetnetbeheerder documenteert welke privacy-gevoelige informatie opgenomen is in de gegevens. De `data protection officer` keurt dit document goed.
+3	gegevensopslag	2	4	De meetnetbeheerder documenteert wie op welke manier de privacy-gevoelige informatie bewaard en verwerkt. De `data protection officer` keurt dit document goed.
+3	gegevensopslag	3	1	De gegevens worden opgeslagen in een centrale databank.
+3	gegevensopslag	3	2	Nog in te vullen in overleg met team Databeheer.
+3	gegevensopslag	4	1	De gegevens zijn gepubliceerd.
+3	gegevensopslag	4	2	De gegevens zijn niet gepubliceerd.
+3	gegevensopslag	4	3	De verwerkte gegevens zijn publiek beschikbaar. Denk hierbij aan alle informatie nodig om de tabellen en figuren van een rapport aan te maken.
+3	gegevensopslag	4	4	Zowel de verwerkte als de ruwe gegevens zijn publiek beschikbaar. Indien (een deel van) de ruwe gegevens niet publiek mag zijn, is dit gemotiveerd op basis van de beschikbare richtlijnen van de organisatie.
+3	gegevensopslag	5	1	De gegevens zijn open.
+3	gegevensopslag	5	2	De gegevens zijn zonder licentie of met een onduidelijke licentie.
+3	gegevensopslag	5	3	Er is een `lees-mij` bestand met vermelding van de licentie waaronder de gegevens beschikbaar zijn. De licentie is een gestandaardiseerde open licentie.
+3	gegevensopslag	5	4	De gekozen licentie volgt de richtlijnen van de organisatie. De licentietekst is bij de gegevens gevoegd.
+3	gegevensopslag	6	1	De gegevens zijn FAIR (`Findable`, `Accessible`, `Interoperable`, `Re-usable`).
+3	gegevensopslag	6	2	De gegevens zijn niet FAIR.
+3	gegevensopslag	6	3	De publiek beschikbare gegevens zijn FAIR.
+3	gegevensopslag	6	4	Alle gegevens zijn FAIR. De metadata van niet publiek beschikbare gegevens is publiek.
 3	verwerking	1	1	Voor elke meetvraag is een analysewerkstroom voorzien.
 3	verwerking	1	2	De werkwijze om de ruwe gegevens om te zetten naar een antwoord op de meetvragen is niet gedocumenteerd.
 3	verwerking	1	3	Voor elke meetvraag is er een voldoende duidelijke beschrijving van de analysewerkstroom.
